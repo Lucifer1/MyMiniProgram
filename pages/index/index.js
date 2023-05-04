@@ -18,6 +18,7 @@ Page({
     })
   },
   onLoad() {
+    console.log('>>>', 'test')
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
