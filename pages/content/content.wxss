@@ -1,0 +1,24 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex-shrink: 0;
+    flex-grow: 1;
+    /* display: inline-block; */
+    width: 32%;
+    height: 200rpx;
+    border: 1px solid #000000;
+}
+
+.swiper-item-0 {
+    background-color: red;
+}
+.swiper-item-1 {
+    background-color: green;
+}
+.swiper-item-2 {
+    background-color: yellow;
+}
