@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/shop/shop",
-    "pages/me-page/me-page"
+    "pages/me-page/me-page",
+    "pages/buy-list/buy-list",
+    "pages/query/query"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,6 +27,10 @@
       {
         "pagePath": "pages/shop/shop",
         "text": "商城"
+      },
+      {
+        "pagePath": "pages/buy-list/buy-list",
+        "text": "购物车"
       },
       {
         "pagePath": "pages/me-page/me-page",

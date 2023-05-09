@@ -13,6 +13,10 @@ Component({
         text: "商城"
       },
       {
+        pagePath: "/pages/buy-list/buy-list",
+        text: "购物车"
+      },
+      {
         pagePath: "/pages/me-page/me-page",
         text: "我的"
       }

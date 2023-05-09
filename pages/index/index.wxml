@@ -1,12 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="content">
-    绿厂
-  </view>
-  <view class="content">
-    红厂
-  </view>
-  <view class="content">
-    蓝厂
+  <view class="content" wx:for="{{list}}" wx:key="index" bindtap="jumpToQuery" data-item="{{item}}">
+    {{item.name}}
   </view>
 </view>

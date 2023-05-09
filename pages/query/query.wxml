@@ -1,0 +1,24 @@
+<view class="input-wrapper">
+  <icon class="search-icon" type="search" size="50rpx"></icon>
+  <input class="input" type="text" value="{{searchstr}}" 	bindinput="search" bindfocus="onFocus" bindblur="onBlur" bindconfirm="confirm"  placeholder="请输入..." />
+  <view wx:if="{{searchflag}}" class="close-placeholder" catchtap="clear"></view>
+  <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
+</view>
+<view wx:if="{{isShowSearchList}}" class="search-list">
+  <view wx:for="{{searchList}}" wx:key="index" class="search-list-item">
+    {{item}}    
+  </view>
+</view>
+<view class="content">
+  <view class="product-list">
+    <view class="list-item" wx:for="{{productList}}" wx:key="index" bindtap="changeProduct" data-index="{{index}}">
+      <view class="item-text {{activeIndex === index ? 'item-text-active' : ''}}">{{item.type}}</view>
+    </view>
+  </view>
+  <view class="product-detail">
+    <view class="detail-item" wx:for="{{productList[activeIndex].list}}" wx:key="index">
+      <image class="product-img" src="/images/activity_add.png" mode=""/>
+      <view>{{item}}</view>
+    </view>
+  </view>
+</view>
