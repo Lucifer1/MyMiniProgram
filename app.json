@@ -4,7 +4,8 @@
     "pages/shop/shop",
     "pages/me-page/me-page",
     "pages/buy-list/buy-list",
-    "pages/query/query"
+    "pages/query/query",
+    "pages/compare/compare"
   ],
   "window": {
     "backgroundTextStyle": "light",

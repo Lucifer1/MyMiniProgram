@@ -1,18 +1,15 @@
 Component({
   data: {
-    list: [
-      {
-        name: '绿厂',
-        label: 'yonex'
-      },
-      {
-        name: '红厂',
-        label: 'lining'
-      },
-      {
-        name: '蓝厂',
-        label: 'victor'
-      },
+    imgList: [
+      'https://lightman-bucket.s3.ap-northeast-1.amazonaws.com/1.jpg',
+      'https://lightman-bucket.s3.ap-northeast-1.amazonaws.com/2.jpg',
+      'https://lightman-bucket.s3.ap-northeast-1.amazonaws.com/3.jpg',
+    ],
+    moduleList: [
+      { name: '球拍查询', icon: '/images/icon.jpg', jump: '/pages/query/query?type=racket' },
+      { name: '球拍对比', icon: '/images/icon.jpg', jump: '/pages/compare/compare' },
+      { name: '装备查询', icon: '/images/icon.jpg', jump: '/pages/query/query?type=equipment' },
+      { name: '商城', icon: '/images/icon.jpg', jump: '/pages/shop/shop' }
     ]
   },
   pageLifetimes: {
@@ -23,12 +20,13 @@ Component({
     }
   },
   methods: {
-    jumpToQuery (e) {
-      const data = e.currentTarget.dataset
-      console.log('data', data);
+    jumpToModule (event) {
+      console.log('event', event);
+      const data = event.currentTarget.dataset
       wx.navigateTo({
-        url: `/pages/query/query?label=${data.item.label}`,
+        url: data.jump,
       })
     }
   }
 })
+

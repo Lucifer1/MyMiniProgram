@@ -42,9 +42,14 @@ Component({
             selected: 1
           })
           break
-        case '我的':
+        case '购物车':
           this.setData({
             selected: 2
+          })
+          break
+        case '我的':
+          this.setData({
+            selected: 3
           })
           break
         default: 

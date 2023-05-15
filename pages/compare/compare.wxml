@@ -1,0 +1,31 @@
+<view class="compare-wrapper">
+  <view>
+    <view class="input" type="text" bindtap="chooseRacketInputFocus" data-type="1" >
+      {{ racket1 }}
+    </view>
+  </view>
+  <view class="font">
+    vs
+  </view>
+  <view>
+    <view class="input input2" type="text" bindtap="chooseRacketInputFocus" data-type="2">
+      {{ racket2 }}
+    </view>
+  </view>
+  <view class="search-button" bindtap="query">
+    查询
+  </view>
+</view>
+<view wx:if="{{isShowSearchList}}" class="query-wrapper">
+  <view class="input-wrapper">
+    <icon class="query-icon" type="search" size="50rpx"></icon>
+    <input class="query-input" type="text" value="{{queryStr}}"	bindinput="queryInput" bindfocus="queryFocus" bindblur="onBlur" placeholder="请输入..." />
+    <view wx:if="{{searchflag}}" class="close-placeholder" catchtap="clear"></view>
+    <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
+  </view>
+  <view wx:if="{{isShowSearchList}}" class="search-list">
+    <view wx:for="{{searchList}}" wx:key="index" class="search-list-item" bindtap="chooseRacket" data-racket="{{item}}">
+      {{item}}    
+    </view>
+  </view>
+</view>

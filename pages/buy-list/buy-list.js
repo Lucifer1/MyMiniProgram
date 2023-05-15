@@ -5,7 +5,7 @@ Component({
   pageLifetimes: {
     show() {
       if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-        this.getTabBar().setSelected('我的')
+        this.getTabBar().setSelected('购物车')
       }
     }
   }

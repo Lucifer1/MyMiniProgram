@@ -1,8 +1,5 @@
-<swiper indicator-dots="true" autoplay="true" circular="true" interval="2000" duration="500" >
-    <swiper-item class="{{'swiper-item-' + index}}" wx:for="{{3}}" wx:key="index">
-        <view class="swiper-item {{item}}"></view>
-    </swiper-item>
-</swiper>
-<view class="wrapper">
-    <view bindtap="jumpToModule" class="content" wx:for="{{9}}" wx:key="index">{{index}}:{{item}}</view>
+<view class="container">
+  <view class="content" wx:for="{{list}}" wx:key="index" bindtap="jumpToQuery" data-item="{{item}}">
+    {{item.name}}
+  </view>
 </view>

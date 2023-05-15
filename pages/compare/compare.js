@@ -1,7 +1,9 @@
-// 把搜索页改成一个paeg吧
+// pages/compare/compare.js
 Page({
   data: {
-    searchstr: '',
+    racket1: '',
+    racket2: '',
+    queryStr: '',
     searchflag: false,
     productList: [
       {
@@ -20,10 +22,10 @@ Page({
     activeIndex: 0,
     totalList: [],
     searchList: [],
-    isShowSearchList: false
+    isShowSearchList: false,
+    whichInput: 1,
   },
-  onLoad (options) {
-    console.log('options', options);
+  onLoad(options) {
     const totalList = []
     for (let i = 0; i < this.data.productList.length; i++) {
       totalList.push(...this.data.productList[i].list)
@@ -32,24 +34,52 @@ Page({
       totalList
     })
   },
-  search (e) {
+  onReady() {
+
+  },
+  onShow() {
+
+  },
+  query() {
+    console.log('query');
+    if (!this.data.racket1 || !this.data.racket2) {
+      wx.showToast({
+        title: '请输入要对比的球拍',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+  },
+  chooseRacketInputFocus (event) {
+    const data = event.currentTarget.dataset
+    this.setData({
+      isShowSearchList: true,
+      whichInput: data.type
+    })
+  },
+  queryInput (e) {
     console.log('search', e);
     if (e.detail.value) {
       const searchList = this.data.totalList.filter(item => {
         return item.indexOf(e.detail.value) !== -1
       })
       console.log('searchList', searchList);
-      this.setData({
-        searchList
-      })
+      if (searchList.length) {
+        this.setData({
+          searchList
+        })
+      } else {
+        this.setData({
+          searchList: ['暂无数据']
+        })
+      }
     } else {
       this.setData({
         searchList: []
       })
-    }
-    
+    } 
   },
-  onFocus (e) {
+  queryFocus (e) {
     this.setData({
       searchflag: true,
       isShowSearchList: true
@@ -74,11 +104,19 @@ Page({
   confirm (e) {
     console.log('confirm', e);
   },
-  changeProduct (e) {
-    const data = e.currentTarget.dataset
-    this.setData({
-      activeIndex: data.index
-    })
+  chooseRacket (event) {
+    console.log('testtt', this.data.whichInput === '1');
+    const data = event.currentTarget.dataset
     console.log(data);
+    if (this.data.whichInput === '1') {
+      this.setData({
+        racket1: data.racket
+      })
+    } else {
+      this.setData({
+        racket2: data.racket
+      })
+    }
+    this.clear()
   }
 })

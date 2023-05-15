@@ -1,6 +1,19 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="content" wx:for="{{list}}" wx:key="index" bindtap="jumpToQuery" data-item="{{item}}">
-    {{item.name}}
+<swiper class="swiper-wrapper" indicator-dots="true" autoplay="true" circular="true" interval="2000" duration="500" >
+    <swiper-item wx:for="{{imgList}}" wx:key="index">
+        <image class="banner-img" src="{{item}}" mode="scaleToFill"/>
+    </swiper-item>
+</swiper>
+<view class="wrapper">
+    <view bindtap="jumpToModule" class="content" wx:for="{{moduleList}}" wx:key="index" data-jump="{{item.jump}}">
+      <image class="module-icon" src="{{item.icon}}" mode="widthFix"/>
+      <view>
+        {{item.name}}
+      </view>
+    </view>
+</view>
+<view class="more-content">
+  <view class="title">
+    最新数据
   </view>
 </view>
+
