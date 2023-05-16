@@ -16,6 +16,10 @@
   font-size: 50rpx;
 }
 
+.text-placeholder {
+  color: #909090;
+}
+
 .input2 {
   margin-top: 100rpx;
 }
@@ -41,7 +45,7 @@
   top: 0;
 }
 
-.input-wrapper {
+.query-content {
   width: 100vw;
   height: 100rpx;
   display: flex;
