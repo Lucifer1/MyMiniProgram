@@ -11,9 +11,13 @@
       </view>
     </view>
 </view>
-<view class="more-content">
-  <view class="title">
-    最新数据
+<view class="title-wrapper">
+  <view class="border-line"></view>
+  <view class="title">最新文章</view>
+</view>
+<view class="article-wrapper">
+  <view class="article-title" wx:for="{{articleList}}" wx:key="{{index}}" bindtap="jumpToArticle" data-url="{{item.url}}">
+    {{item.title}}
   </view>
 </view>
 

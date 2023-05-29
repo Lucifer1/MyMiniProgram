@@ -21,6 +21,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/search-list/search-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/racket-compare/racket-compare",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

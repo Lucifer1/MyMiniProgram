@@ -10,6 +10,13 @@ Component({
       { name: '球拍对比', icon: '/images/icon.jpg', jump: '/pages/compare/compare' },
       { name: '装备查询', icon: '/images/icon.jpg', jump: '/pages/query/query?type=equipment' },
       { name: '商城', icon: '/images/icon.jpg', jump: '/pages/shop/shop' }
+    ],
+    articleList: [
+      { title: '这是一个名字', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
+      { title: '这是一个名字很长的', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
+      { title: '这是一个名字很长的文章这是一个', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
+      { title: '这是一个名字很长的文章这是一个名字很长的文章这是一个名字很长的文章这是一个名字很长的文章', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
+      { title: '这是一个名字很长的文章这是一个名字很长的文章这是一个名字很长的文章这是一个名字很长的文章', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
     ]
   },
   pageLifetimes: {
@@ -25,6 +32,12 @@ Component({
       const data = event.currentTarget.dataset
       wx.navigateTo({
         url: data.jump,
+      })
+    },
+    jumpToArticle (event) {
+      const data = event.currentTarget.dataset
+      wx.navigateTo({
+        url: `/pages/article/article?url=${data.url}`,
       })
     }
   }

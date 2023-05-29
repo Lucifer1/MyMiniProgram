@@ -1,0 +1,58 @@
+page {
+  padding-bottom: 200rpx;
+}
+
+.title-wrapper {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.border-line {
+  width: 10rpx;
+  height: 40rpx;
+  background-color: #fd810d;
+  margin: 0 20rpx 0 10rpx;
+}
+
+.title {
+  font-size: 50rpx;
+}
+
+.racket-data-form {
+  display: flex;
+  padding: 32rpx;
+}
+
+.racket-params {
+  flex: 1;
+}
+
+.racket-detail {
+  flex: 1
+}
+
+.table-td {
+  font-weight: 600;
+}
+
+.table-cell {
+  border-bottom: 1px solid #a3a1a1;
+  padding: 15rpx 0;
+  text-align: center;
+}
+
+.racket-desc-detail {
+  padding: 32rpx;
+}
+
+.racket-detail-name {
+  font-size: 40rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.racket-detail-desc {
+  text-indent: 1.5em
+}

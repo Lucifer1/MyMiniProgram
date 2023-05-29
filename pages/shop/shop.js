@@ -3,16 +3,19 @@ Component({
     queryStr: '',
     searchflag: false,
     productList: [
-      { name: 'test1', desc: '123123123', price: '100', img: '/images/icon.jpg' },
-      { name: 'test2', desc: '123123123', price: '100', img: '/images/icon.jpg' },
-      { name: 'test3', desc: '123123123', price: '100', img: '/images/icon.jpg' },
-      { name: 'test4', desc: '123123123', price: '100', img: '/images/icon.jpg' },
-      { name: 'test5', desc: '123123123', price: '100', img: '/images/icon.jpg' },
-      { name: 'test6', desc: '123123123', price: '100', img: '/images/icon.jpg' },
+      { name: '天斧99', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '纳米7', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '白弓10', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '弓箭11', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '尖峰80', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
+      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' }
     ],
     activeIndex: 0,
     searchList: [],
-    isShowSearchList: true,
+    isShowSearchList: false,
   },
   lifetimes: {
     created () {
@@ -26,6 +29,11 @@ Component({
     }
   },
   methods: {
+    turnToSearch () {
+      this.setData({
+        isShowSearchList: true
+      })
+    },
     queryInput (e) {
       console.log('search', e);
       if (e.detail.value) {

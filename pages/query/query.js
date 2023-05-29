@@ -23,56 +23,12 @@ Page({
     isShowSearchList: false
   },
   onLoad (options) {
-    console.log('options', options);
-    const totalList = []
-    for (let i = 0; i < this.data.productList.length; i++) {
-      totalList.push(...this.data.productList[i].list)
-    }
-    this.setData({
-      totalList
+  },
+  jumpToSearch () {
+    console.log('jumpToSearch');
+    wx.navigateTo({
+      url: '/pages/search-list/search-list',
     })
-  },
-  search (e) {
-    console.log('search', e);
-    if (e.detail.value) {
-      const searchList = this.data.totalList.filter(item => {
-        return item.indexOf(e.detail.value) !== -1
-      })
-      console.log('searchList', searchList);
-      this.setData({
-        searchList
-      })
-    } else {
-      this.setData({
-        searchList: []
-      })
-    }
-    
-  },
-  onFocus (e) {
-    this.setData({
-      searchflag: true,
-      isShowSearchList: true
-    })
-    console.log('getfocus', e);
-  },
-  onBlur (e) {
-    console.log('blur');
-  },
-  clear (e) {
-    console.log('clear');
-    this.setData({
-      searchstr: '',
-      searchflag: false,
-      isShowSearchList: false,
-      searchList: []
-    })
-  },
-  searchList (e) {
-    console.log('input', e);
-  },
-  confirm (e) {
-    console.log('confirm', e);
   },
   changeProduct (e) {
     const data = e.currentTarget.dataset

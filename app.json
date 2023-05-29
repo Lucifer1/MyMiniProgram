@@ -5,7 +5,10 @@
     "pages/me-page/me-page",
     "pages/buy-list/buy-list",
     "pages/query/query",
-    "pages/compare/compare"
+    "pages/compare/compare",
+    "pages/search-list/search-list",
+    "pages/racket-compare/racket-compare",
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",

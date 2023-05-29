@@ -1,13 +1,6 @@
 <view class="input-wrapper">
   <icon class="search-icon" type="search" size="50rpx"></icon>
-  <input class="input" type="text" value="{{searchstr}}" 	bindinput="search" bindfocus="onFocus" bindblur="onBlur" bindconfirm="confirm"  placeholder="请输入..." />
-  <view wx:if="{{searchflag}}" class="close-placeholder" catchtap="clear"></view>
-  <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
-</view>
-<view wx:if="{{isShowSearchList}}" class="search-list">
-  <view wx:for="{{searchList}}" wx:key="index" class="search-list-item">
-    {{item}}    
-  </view>
+  <view class="input" bindtap="jumpToSearch"></view>
 </view>
 <view class="content">
   <view class="product-list">

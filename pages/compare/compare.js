@@ -48,6 +48,10 @@ Page({
         icon: 'none',
         duration: 2000
       })
+    } else {
+      wx.navigateTo({
+        url: `/pages/racket-compare/racket-compare?racket1=${this.data.racket1}&racket2=${this.data.racket2}`,
+      })
     }
   },
   chooseRacketInputFocus (event) {
