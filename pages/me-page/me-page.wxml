@@ -1,2 +1,6 @@
-<!--pages/me-page/me-page.wxml-->
-<text>pages/me-page/me-page.wxml</text>
+<view class="info-wrapper">
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button>
+  <input type="nickname" class="nickname-input" placeholder="昵称" bindblur="nicknameConfirm" value="{{nickname}}" />
+</view>

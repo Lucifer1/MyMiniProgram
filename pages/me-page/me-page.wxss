@@ -1,1 +1,24 @@
-/* pages/me-page/me-page.wxss */
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 112rpx !important;
+  border-radius: 50%;
+  margin: 40rpx 0;
+}
+
+.avatar {
+  display: block;
+  width: 112rpx;
+  height: 112rpx;
+}
+
+.nickname-input {
+  text-align: center;
+  width: 300rpx;
+}
