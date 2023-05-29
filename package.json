@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "miniprogram-computed": "^4.4.0",
+    "miniprogram-watch": "^0.0.3"
+  }
+}

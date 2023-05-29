@@ -4,10 +4,10 @@
   left: 0;
   right: 0;
   height: 120rpx;
-  background: white;
+  background-color: #ffffff;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
-  box-shadow: 0 -5px 10px rgba(128, 128, 128, 0.2);
+  border-top: 1px solid #e3e3e3;
 }
 
 .tab-bar-border {

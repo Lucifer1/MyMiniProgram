@@ -1,2 +1,35 @@
-<!--pages/buy-list/buy-list.wxml-->
-<text>pages/buy-list/buy-list.wxml</text>
+<view>
+  <checkbox-group class="product-list-wrapper">
+    <label class="product-item" wx:for="{{productList}}" data-index="{{ index }}" data-product="{{ item }}" bindtap="selectProduct">
+      <checkbox class="check-box" value="{{item.name}}" checked="{{item.checked}}"/>
+      <view class="product-content">
+        <image class="product-img" src="/images/icon.jpg" mode="widthFix" />
+        <view class="product-font">
+          <view class="product-title">{{ item.name }}</view>
+          <view class="product-variant">{{ item.variant }}</view>
+          <view class="product-price">
+            <text class="price-icon">￥</text><text class="product-price">{{item.price}}</text>
+          </view>
+          <view class="product-number">
+            <view class="decline, {{ item.number <= 1 ? ' disable' : '' }}" catchtap="decline" data-index="{{ index }}">-</view>
+            <view class="number">{{ item.number }}</view>
+            <view class="plus" catchtap="plus" data-index="{{ index }}">+</view>
+          </view>
+        </view>
+      </view>
+    </label>
+  </checkbox-group>
+  <view class="price-wrapper">
+    <label class="all-check">
+      <radio checked="{{ isAllCheck }}" bindtap="checkAll" />
+      <view>全选</view>
+    </label>
+    <view class="purchase-button-wrapper">
+      <view>
+        <text>合计:</text>
+        <view class="total-price-icon">￥</view><view class="total-product-price">{{ totalPrice }}</view>
+      </view>
+      <view class="purchase-button">去结算</view>
+    </view>
+  </view>
+</view>
