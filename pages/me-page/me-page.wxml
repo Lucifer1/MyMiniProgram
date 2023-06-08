@@ -10,7 +10,7 @@
       <image class="item-icon" src="/images/order.png" mode="widthFix"/>
       <text>我的订单</text>
     </view>
-    <view class="list-item">
+    <view class="list-item" bindtap="jumpToAddress">
       <image class="item-icon" src="/images/address.png" mode="widthFix"/>
       <text>收货地址</text>
     </view>

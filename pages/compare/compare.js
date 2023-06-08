@@ -1,34 +1,23 @@
-// pages/compare/compare.js
+let Storage = require('../../utils/storage-utils');
+
 Page({
   data: {
     racket1: '',
     racket2: '',
     queryStr: '',
     searchflag: false,
-    productList: [
-      {
-        type: '天斧系列',
-        list: ['天斧77', '天斧88', '天斧99',]
-      },
-      {
-        type: '纳米系列',
-        list: ['纳米77', '纳米88', '纳米99',]
-      },
-      {
-        type: '弓箭系列',
-        list: ['弓箭77', '弓箭88', '弓箭99',]
-      },
-    ],
     activeIndex: 0,
     totalList: [],
     searchList: [],
     isShowSearchList: false,
     whichInput: 1,
   },
-  onLoad(options) {
+  onLoad() {
+    const racketData = JSON.parse(Storage.getVariable('racketData')) || []
     const totalList = []
-    for (let i = 0; i < this.data.productList.length; i++) {
-      totalList.push(...this.data.productList[i].list)
+    for (let i = 0; i < racketData.length; i++) {
+      const name = racketData[i].name + ' ' + racketData[i].version + ' ' + racketData[i].variant
+      totalList.push(name)
     }
     this.setData({
       totalList
@@ -50,18 +39,18 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: `/pages/racket-compare/racket-compare?racket1=${this.data.racket1}&racket2=${this.data.racket2}`,
+        url: `/pages/racket-compare-result/racket-compare-result?racket1=${this.data.racket1}&racket2=${this.data.racket2}`,
       })
     }
   },
-  chooseRacketInputFocus (event) {
+  chooseRacketInputFocus(event) {
     const data = event.currentTarget.dataset
     this.setData({
       isShowSearchList: true,
       whichInput: data.type
     })
   },
-  queryInput (e) {
+  queryInput(e) {
     console.log('search', e);
     if (e.detail.value) {
       const searchList = this.data.totalList.filter(item => {
@@ -81,19 +70,19 @@ Page({
       this.setData({
         searchList: []
       })
-    } 
+    }
   },
-  queryFocus (e) {
+  queryFocus(e) {
     this.setData({
       searchflag: true,
       isShowSearchList: true
     })
     console.log('getfocus', e);
   },
-  onBlur (e) {
+  onBlur(e) {
     console.log('blur');
   },
-  clear (e) {
+  clear(e) {
     console.log('clear');
     this.setData({
       searchstr: '',
@@ -102,13 +91,13 @@ Page({
       searchList: []
     })
   },
-  searchList (e) {
+  searchList(e) {
     console.log('input', e);
   },
-  confirm (e) {
+  confirm(e) {
     console.log('confirm', e);
   },
-  chooseRacket (event) {
+  chooseRacket(event) {
     console.log('testtt', this.data.whichInput === '1');
     const data = event.currentTarget.dataset
     console.log(data);

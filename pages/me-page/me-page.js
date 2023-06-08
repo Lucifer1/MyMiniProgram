@@ -41,6 +41,11 @@ Component({
         }
       }
       return len;
-  }
+    },
+    jumpToAddress () {
+      wx.navigateTo({
+        url: '/pages/address-list/address-list',
+      })
+    }
   }
 })

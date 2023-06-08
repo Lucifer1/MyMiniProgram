@@ -4,14 +4,14 @@
 </view>
 <view class="content">
   <view class="product-list">
-    <view class="list-item" wx:for="{{productList}}" wx:key="index" bindtap="changeProduct" data-index="{{index}}">
-      <view class="item-text {{activeIndex === index ? 'item-text-active' : ''}}">{{item.type}}</view>
+    <view class="list-item" wx:for="{{productList}}" wx:for-index="key" wx:for-item="value" wx:key="index" bindtap="changeProduct" data-index="{{key}}">
+      <view class="item-text {{activeIndex === key ? 'item-text-active' : ''}}">{{value.type}}</view>
     </view>
   </view>
   <view class="product-detail">
-    <view class="detail-item" wx:for="{{productList[activeIndex].list}}" wx:key="index">
+    <view class="detail-item" wx:for="{{productList[activeIndex].list}}" wx:key="index" bindtap="queryRacket" data-racket-name="{{item.name + ' ' + item.version + ' ' + item.variant}}">
       <image class="product-img" src="/images/activity_add.png" mode=""/>
-      <view>{{item}}</view>
+      <view>{{item.name + ' ' + item.version + ' ' + item.variant}}</view>
     </view>
   </view>
 </view>

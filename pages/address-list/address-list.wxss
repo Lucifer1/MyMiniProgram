@@ -1,0 +1,87 @@
+page {
+  background-color: #f8f8f8;
+  padding-bottom: 240rpx;
+}
+
+.none-address {
+  position: absolute;
+  width: 100vw;
+  top: 30%;
+  text-align: center;
+  color: #909090;
+}
+
+.list-item {
+  font-size: 16px;
+  padding: 30rpx;
+  padding-bottom: 80rpx;
+  margin: 20rpx 32rpx 0;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  border: 1px solid #d6d6d6;
+}
+
+.item-head {
+  padding-bottom: 20rpx;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.item-desc {
+  font-size: 16px;
+}
+
+.item-edit {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1px #ccc solid;
+}
+
+.right {
+  padding-top: 10rpx;
+  float: right;
+  padding-right: 10rpx;
+}
+
+.edit-address {
+  display: inline-block;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  border: 1px solid #ccc;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+
+.left {
+  float: left;
+  vertical-align: middle;
+}
+
+.chk-active {
+  color: #f31;
+}
+
+.ctr {
+  position: relative;
+}
+
+.btn-area {
+  width: 100vw;
+  background-color: #FFFFFF;
+  position: fixed;
+  bottom: 0rpx;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.add-address {
+  width: calc(100vw - 64rpx) !important;
+  background-color: #FFFFFF;
+  margin: 0 32rpx;
+  border: 1px solid #d6d6d6;
+}

@@ -1,0 +1,33 @@
+<view class="title-wrapper">
+  <view class="border-line"></view>
+  <view class="title">球拍数据</view>
+</view>
+<view class="racket-data-form">
+    <view class="racket-params">
+      <view class="table-cell table-td" wx:for="{{params}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="racket-detail" wx:if="{{racketData1}}">
+      <view class="table-cell" wx:for="{{racketData1}}" wx:for-index="key" wx:for-item="value" wx:key="index" wx:if="{{key !== 'desc' && key !== 'mark'}}">
+        <text >{{value}}</text>
+      </view>
+    </view>
+    <view class="racket-detail" wx:if="{{racketData2}}">
+      <view class="table-cell" wx:for="{{racketData2}}" wx:for-index="key" wx:for-item="value" wx:key="index" wx:if="{{key !== 'desc' && key !== 'mark'}}">
+        <text >{{value}}</text>
+      </view>
+    </view>
+</view>
+<view class="title-wrapper">
+  <view class="border-line"></view>
+  <view class="title">球拍介紹</view>
+</view>
+<view>
+  <view class="racket-desc-detail" wx:if="{{racketData1}}">
+    <view class="racket-detail-name">{{racketData1.name}}</view>
+    <view class="racket-detail-desc">{{racketData1.desc}}</view>
+  </view>
+  <view class="racket-desc-detail" wx:if="{{racketData2}}">
+    <view class="racket-detail-name">{{racketData2.name}}</view>
+    <view class="racket-detail-desc">{{racketData2.desc}}</view>
+  </view>
+</view>

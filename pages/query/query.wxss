@@ -12,6 +12,8 @@ page {
   align-items: center;
   padding: 0 32rpx;
   box-sizing: border-box;
+  position: fixed;
+  background-color: #ffffff;
 }
 
 .search-icon {
@@ -67,6 +69,8 @@ page {
 
 .product-list {
   width: 25%;
+  position: fixed;
+  top: 100rpx
 }
 
 .list-item {
@@ -89,9 +93,10 @@ page {
 
 .product-detail {
   width: 100%;
+  margin-top: 100rpx;
+  margin-left: 25%;
   flex: 1;
-  padding: 0 16rpx;
-  /* display: flex; */
+  padding: 0 16rpx 100rpx;
   flex-wrap: wrap;
 }
 

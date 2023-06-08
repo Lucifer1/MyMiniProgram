@@ -1,4 +1,5 @@
-// pages/search-list/search-list.js
+let Storage = require('../../utils/storage-utils');
+
 Page({
 
   /**
@@ -7,36 +8,23 @@ Page({
   data: {
     queryStr: '',
     searchflag: false,
-    productList: [
-      {
-        type: '天斧系列',
-        list: ['天斧77', '天斧88', '天斧99',]
-      },
-      {
-        type: '纳米系列',
-        list: ['纳米77', '纳米88', '纳米99',]
-      },
-      {
-        type: '弓箭系列',
-        list: ['弓箭77', '弓箭88', '弓箭99',]
-      },
-    ],
     activeIndex: 0,
     totalList: [],
     searchList: [],
     isShowSearchList: false
   },
-  onLoad(options) {
-    console.log('options', options);
+  onLoad() {
+    const racketData = JSON.parse(Storage.getVariable('racketData')) || []
     const totalList = []
-    for (let i = 0; i < this.data.productList.length; i++) {
-      totalList.push(...this.data.productList[i].list)
+    for (let i = 0; i < racketData.length; i++) {
+      const name = racketData[i].name + ' ' + racketData[i].version + ' ' + racketData[i].variant
+      totalList.push(name)
     }
     this.setData({
       totalList
     })
   },
-  search (e) {
+  search(e) {
     console.log('search', e);
     if (e.detail.value) {
       const searchList = this.data.totalList.filter(item => {
@@ -52,30 +40,30 @@ Page({
       })
     }
   },
-  queryFocus (e) {
+  queryFocus(e) {
     this.setData({
       searchflag: true,
       isShowSearchList: true
     })
     console.log('getfocus', e);
   },
-  onBlur (e) {
+  onBlur(e) {
     console.log('blur');
   },
-  clear (e) {
+  clear(e) {
     console.log('clear');
     wx.navigateBack()
   },
-  searchList (e) {
+  searchList(e) {
     console.log('input', e);
   },
-  confirm (e) {
+  confirm(e) {
     console.log('confirm', e);
   },
-  queryRacket (e) {
+  queryRacket(e) {
     const data = e.currentTarget.dataset
     wx.navigateTo({
-      url: `/pages/racket-compare/racket-compare?racket1=${data.racketName}`,
+      url: `/pages/racket-compare-result/racket-compare-result?racket1=${data.racketName}`,
     })
   }
 })

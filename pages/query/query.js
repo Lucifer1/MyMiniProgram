@@ -1,28 +1,38 @@
-// 把搜索页改成一个paeg吧
+let Storage = require('../../utils/storage-utils');
+
 Page({
   data: {
     searchstr: '',
     searchflag: false,
-    productList: [
-      {
-        type: '天斧系列',
-        list: ['天斧77', '天斧88', '天斧99',]
+    productList: {
+      Yonex: {
+        type: '绿厂',
+        list: []
       },
-      {
-        type: '纳米系列',
-        list: ['纳米77', '纳米88', '纳米99',]
+      Victor: {
+        type: '蓝厂',
+        list: []
       },
-      {
-        type: '弓箭系列',
-        list: ['弓箭77', '弓箭88', '弓箭99',]
-      },
-    ],
-    activeIndex: 0,
+      Lining: {
+        type: '红厂',
+        list: []
+      }
+    },
+    activeIndex: 'Yonex',
     totalList: [],
     searchList: [],
     isShowSearchList: false
   },
-  onLoad (options) {
+  onLoad () {
+    const racketData = JSON.parse(Storage.getVariable('racketData')) || []
+    const productList = this.data.productList
+    racketData.forEach((racket) => {
+        productList[racket.mark].list.push(racket)
+    })
+    console.log('productList', productList);
+    this.setData({
+      productList: productList
+    })
   },
   jumpToSearch () {
     console.log('jumpToSearch');
@@ -36,5 +46,11 @@ Page({
       activeIndex: data.index
     })
     console.log(data);
+  },
+  queryRacket(e) {
+    const data = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/racket-compare-result/racket-compare-result?racket1=${data.racketName}`,
+    })
   }
 })

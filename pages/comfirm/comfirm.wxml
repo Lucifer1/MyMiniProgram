@@ -1,0 +1,42 @@
+<view class="wrapper">
+  <view class="nickName">张家铭</view>
+  <view class="phone">13832991276</view>
+  <view class="change-address">更改</view>
+  <view class="address">北京市 朝阳区 望京街道 剩下的你猜</view>
+</view>
+<view class="wrapper">
+  <view class="title">精选商品</view>
+  <view class="product-list">
+    <view class="product-item">
+      <image class="product-img" src="/images/icon.jpg" mode="widthFix"/>
+      <view class="product-content">
+        <view class="product-title">我是名字啦啦啦啦啦啦</view>
+        <view class="price-and-number">
+          <view>
+            <view class="total-price-icon">￥</view><view class="total-product-price">100</view>
+          </view>
+          <view>x1</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="wrapper">
+  <view class="money-item">
+    <text>商品金额</text>
+    <text>￥100.01</text>
+  </view>
+  <view class="money-item">
+    <text>运费</text>
+    <text>￥100.01</text>
+  </view>
+</view>
+<view class="price-wrapper">
+  <view class="purchase-button-wrapper">
+    <view>
+      <text>合计:</text>
+      <view class="total-price-icon">￥</view><view class="total-product-price">{{ totalPrice }}</view>
+    </view>
+    <view class="purchase-button">去支付</view>
+  </view>
+</view>

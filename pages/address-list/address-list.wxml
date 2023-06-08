@@ -1,0 +1,31 @@
+<view wx:if="{{!addressList.length}}">
+  <view class="none-address">
+    您还没有收货地址，请点击下方按钮添加
+  </view>
+</view>
+<radio-group bindchange="radioChange">
+  <view class='list-item' wx:for="{{addressList}}" wx:key="index">
+    <view class='item-head'>
+      <text class="nickname">{{item.name}}</text>
+      <text class='right'>{{item.tel}}</text>
+    </view>
+
+    <view class='item-desc'>
+      <text>{{item.city}}{{item.address}}</text>
+    </view>
+
+    <view class='item-edit'>
+      <view class='left'>
+        <radio value="{{index}}" checked="{{item.status}}">
+          <text class='ctr'>设为默认</text>
+        </radio>
+      </view>
+      <view class='right'>
+        <view class="edit-address" bindtap="delAddr" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+</radio-group>
+<view class="btn-area" bindtap="chooseAddress">
+  <button class="add-address">+ 添加地址</button>
+</view>

@@ -30,6 +30,10 @@ Component({
     jumpToModule (event) {
       console.log('event', event);
       const data = event.currentTarget.dataset
+      if (data.jump === '/pages/shop/shop') {
+        wx.switchTab({url: '/pages/shop/shop'})
+        return
+      }
       wx.navigateTo({
         url: data.jump,
       })

@@ -1,4 +1,6 @@
-const UserApi = require('/api/user');
+const UserApi = require('./api/user');
+const RacketApi = require('./api/racket');
+console.log('RacketApi', RacketApi);
 
 // app.js
 App({
@@ -8,14 +10,17 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    UserApi.miniLogin({
-      success: function (res) {
-        console.log('>>>', 'res', res)
-        if (res.statusCode === 200) {
-        }
-      }
-  })
+    // // 登录
+    // UserApi.miniLogin({
+    //   success: function (res) {
+    //     console.log('>>>', 'res', res)
+    //     if (res.statusCode === 200) {
+    //     }
+    //   }
+    // })
+
+    // 获取拍子数据
+    RacketApi.getAllRacket()
   },
   globalData: {
     userInfo: null

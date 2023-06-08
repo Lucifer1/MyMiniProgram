@@ -33,7 +33,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/racket-compare/racket-compare",
+          "pathName": "pages/racket-compare-result/racket-compare-result",
           "query": "",
           "scene": null
         },
@@ -41,6 +41,20 @@
           "name": "",
           "pathName": "pages/me-page/me-page",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address-list/address-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comfirm/comfirm",
+          "query": "",
+          "launchMode": "default",
           "scene": null
         }
       ]
