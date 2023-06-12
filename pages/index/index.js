@@ -8,8 +8,8 @@ Component({
     moduleList: [
       { name: '球拍查询', icon: '/images/icon.jpg', jump: '/pages/query/query?type=racket' },
       { name: '球拍对比', icon: '/images/icon.jpg', jump: '/pages/compare/compare' },
-      { name: '装备查询', icon: '/images/icon.jpg', jump: '/pages/query/query?type=equipment' },
-      { name: '商城', icon: '/images/icon.jpg', jump: '/pages/shop/shop' }
+      { name: '商城', icon: '/images/icon.jpg', jump: '/pages/shop/shop' },
+      { name: '敬请期待~', icon: '/images/icon.jpg', jump: '/pages/other/other' }
     ],
     articleList: [
       { title: '这是一个名字', url: 'https://mp.weixin.qq.com/s/UebcCl_7ac0QLeRFm1WHtw' },
@@ -30,6 +30,7 @@ Component({
     jumpToModule (event) {
       console.log('event', event);
       const data = event.currentTarget.dataset
+      if (data.jump === '/pages/other/other') return
       if (data.jump === '/pages/shop/shop') {
         wx.switchTab({url: '/pages/shop/shop'})
         return

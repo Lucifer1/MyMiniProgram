@@ -10,7 +10,8 @@
     "pages/racket-compare-result/racket-compare-result",
     "pages/article/article",
     "pages/address-list/address-list",
-    "pages/comfirm/comfirm"
+    "pages/comfirm/comfirm",
+    "pages/product-detail/product-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,10 +34,6 @@
       {
         "pagePath": "pages/shop/shop",
         "text": "商城"
-      },
-      {
-        "pagePath": "pages/buy-list/buy-list",
-        "text": "购物车"
       },
       {
         "pagePath": "pages/me-page/me-page",

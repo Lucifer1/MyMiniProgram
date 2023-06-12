@@ -37,6 +37,25 @@ page {
   font-size: 28rpx;
 }
 
+.none-address-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address-none {
+  display: inline-block;
+}
+
+.none-address-desc {
+  color: #adacac;
+  margin-bottom: 12rpx;
+}
+
+.none-address-add {
+  font-weight: bold;
+}
+
 .address {
   margin-top: 16rpx;
 }

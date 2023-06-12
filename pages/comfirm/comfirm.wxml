@@ -1,8 +1,19 @@
 <view class="wrapper">
-  <view class="nickName">张家铭</view>
-  <view class="phone">13832991276</view>
-  <view class="change-address">更改</view>
-  <view class="address">北京市 朝阳区 望京街道 剩下的你猜</view>
+  <view wx:if="{{JSON.stringify(addressInfo) === '{}'}}">
+    <view class="nickName">{{addressInfo.nickName}}</view>
+    <view class=" phone">{{addressInfo.phone}}</view>
+    <view class="change-address" bindtap="jumpToAddress">更改</view>
+    <view class="address">{{addressInfo.address}}</view>
+  </view>
+  <view wx:else class="none-address-wrapper">
+   <view class="address-none">
+    <view>
+      <view class="none-address-desc">暂未获取到收货地址</view>
+      <view class="none-address-add">请到地址页添加 ~</view>
+    </view>
+   </view>
+   <view class="change-address" bindtap="jumpToAddress">添加</view>
+  </view>
 </view>
 <view class="wrapper">
   <view class="title">精选商品</view>

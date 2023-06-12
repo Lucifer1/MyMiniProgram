@@ -29,6 +29,11 @@ Component({
     }
   },
   methods: {
+    jumpToDetail () {
+      wx.navigateTo({
+        url: '/pages/product-detail/product-detail',
+      })
+    },
     turnToSearch () {
       this.setData({
         isShowSearchList: true

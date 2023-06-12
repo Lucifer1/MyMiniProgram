@@ -56,6 +56,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/product-detail/product-detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buy-list/buy-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

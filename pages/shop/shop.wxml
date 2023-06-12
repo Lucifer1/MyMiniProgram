@@ -5,7 +5,7 @@
   <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
 </view>
 <view class="list-container">
-  <view wx:for="{{productList}}" wx:key="{{index}}" class="list-item">
+  <view wx:for="{{productList}}" wx:key="{{index}}" class="list-item" bindtap="jumpToDetail">
     <image class="product-img" src="{{item.img}}" mode="widthFix" />
     <view class="product-name">{{item.name}}</view>
     <view class="product-desc">

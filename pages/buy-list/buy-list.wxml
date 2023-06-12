@@ -11,7 +11,7 @@
             <text class="price-icon">￥</text><text class="product-price">{{item.price}}</text>
           </view>
           <view class="product-number">
-            <view class="decline, {{ item.number <= 1 ? ' disable' : '' }}" catchtap="decline" data-index="{{ index }}">-</view>
+            <view class="decline {{ item.number <= 1 ? ' disable' : '' }}" catchtap="decline" data-index="{{ index }}">-</view>
             <view class="number">{{ item.number }}</view>
             <view class="plus" catchtap="plus" data-index="{{ index }}">+</view>
           </view>
