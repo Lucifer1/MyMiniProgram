@@ -1,19 +1,23 @@
+const ProductApi = require('../../api/product');
+
 Page({
   data: {
-    imgList: [
-      'https://www.lightforpsy.top/img/1.jpg',
-      'https://www.lightforpsy.top/img/2.jpg',
-      'https://www.lightforpsy.top/img/3.jpg',
-      'https://www.lightforpsy.top/img/4.jpg',
-      'https://www.lightforpsy.top/img/5.jpg'
-    ],
-    variantList: ['规格111111111111111', '规格222', '规格33333333333333'],
+    product: {},
     isShowVariantModule: false,
     activeVariantIndex: 0,
-    variantNumber: 2
+    variantNumber: 1
   },
   onLoad(options) {
-
+    const { productId } = options
+    ProductApi.getProductById({
+      id: productId,
+      success: (res) => {
+        console.log('success', res);
+        this.setData({
+          product: res
+        })
+      }
+    })
   },
   showVariantModule () {
     this.setData({

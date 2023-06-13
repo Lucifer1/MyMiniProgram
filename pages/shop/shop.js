@@ -1,24 +1,24 @@
+const ProductApi = require('../../api/product');
+
 Component({
   data: {
     queryStr: '',
     searchflag: false,
-    productList: [
-      { name: '天斧99', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '纳米7', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '白弓10', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '弓箭11', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '尖峰80', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' },
-      { name: '一个名字很长很长很长很长很长的拍子', price: '100', img: '/images/icon.jpg', sellNum: '1234' }
-    ],
+    productList: [],
     activeIndex: 0,
     searchList: [],
     isShowSearchList: false,
   },
   lifetimes: {
     created () {
+      ProductApi.getAllProduct({
+        success: (res) => {
+          console.log('success', res);
+          this.setData({
+            productList: res
+          })
+        }
+      })
     }
   },
   pageLifetimes: {
@@ -29,9 +29,11 @@ Component({
     }
   },
   methods: {
-    jumpToDetail () {
+    jumpToDetail (e) {
+      const data = e.currentTarget.dataset
+      const product = data.item
       wx.navigateTo({
-        url: '/pages/product-detail/product-detail',
+        url: `/pages/product-detail/product-detail?productId=${product.productId}`,
       })
     },
     turnToSearch () {

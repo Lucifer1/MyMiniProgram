@@ -5,13 +5,13 @@
   <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
 </view>
 <view class="list-container">
-  <view wx:for="{{productList}}" wx:key="{{index}}" class="list-item" bindtap="jumpToDetail">
-    <image class="product-img" src="{{item.img}}" mode="widthFix" />
-    <view class="product-name">{{item.name}}</view>
+  <view wx:for="{{productList}}" wx:key="{{index}}" class="list-item" bindtap="jumpToDetail" data-item="{{item}}">
+    <image class="product-img" src="{{item.imgList[0]}}" mode="widthFix" />
+    <view class="product-name">{{item.productName}}</view>
     <view class="product-desc">
       <view>
         <text class="price-icon">￥</text><text class="product-price">{{item.price}}</text>
-        <text class="sell-number">{{item.sellNum}}件已售</text>
+        <!-- <text class="sell-number">{{item.sellNum}}件已售</text> -->
       </view>
       <view class="cart-icon-wrapper">
         <image class="cart-icon" src="/images/cart-icon.png" mode="widthFix"/>

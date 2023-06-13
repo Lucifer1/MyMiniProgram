@@ -13,6 +13,10 @@ Component({
         text: "商城"
       },
       {
+        pagePath: "/pages/buy-list/buy-list",
+        text: "购物车"
+      },
+      {
         pagePath: "/pages/me-page/me-page",
         text: "我的"
       }
@@ -38,9 +42,14 @@ Component({
             selected: 1
           })
           break
-        case '我的':
+        case '购物车':
           this.setData({
             selected: 2
+          })
+          break
+        case '我的':
+          this.setData({
+            selected: 3
           })
           break
         default: 
