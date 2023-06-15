@@ -3,7 +3,7 @@
       <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       <image class="avatar" src="{{avatarUrl}}"></image>
     </button>
-    <input type="nickname" class="nickname-input" placeholder="昵称" bindblur="nicknameConfirm" value="{{nickname}}" />
+    <input type="nickname" class="nickname-input" placeholder="昵称" bindblur="nicknameConfirm" value="{{nickName}}" />
   </view>
   <view class="info-list">
     <view class="list-item">

@@ -37,7 +37,7 @@ Page({
   jumpToSearch () {
     console.log('jumpToSearch');
     wx.navigateTo({
-      url: '/pages/search-list/search-list',
+      url: '/pages/search-list/search-list?from=query',
     })
   },
   changeProduct (e) {

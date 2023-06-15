@@ -36,9 +36,9 @@ Component({
         url: `/pages/product-detail/product-detail?productId=${product.productId}`,
       })
     },
-    turnToSearch () {
-      this.setData({
-        isShowSearchList: true
+    jumpToSearch () {
+      wx.navigateTo({
+        url: '/pages/search-list/search-list?from=shop',
       })
     },
     queryInput (e) {
@@ -72,6 +72,10 @@ Component({
     },
     onBlur (e) {
       console.log('blur');
+      // this.setData({
+      //   searchflag: false,
+      //   isShowSearchList: false
+      // })
     },
     clear (e) {
       console.log('clear');

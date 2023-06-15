@@ -1,9 +1,23 @@
+const userApi = require('../../api/user')
+const galleryUrl = 'https://www.lightforpsy.top/img/uploadImg/'
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Component({
   data: {
     avatarUrl: defaultAvatarUrl,
-    nickname: ''
+    nickName: ''
+  },
+  lifetimes: {
+    created () {
+      userApi.getUserByOpenId({
+        success: (res) => {
+          this.setData({
+            nickName: res.nickName,
+            avatarUrl: res.avatarImg,
+          })
+        }
+      })
+    }
   },
   pageLifetimes: {
     show() {
@@ -13,21 +27,41 @@ Component({
     }
   },
   methods: {
-    onChooseAvatar (e) {
+    async onChooseAvatar (e) {
       const { avatarUrl } = e.detail
       console.log('avatarUrl', avatarUrl);
-      this.setData({
+      userApi.uploadFile({
         avatarUrl,
-      })
+        success: (res) => {
+          console.log('galleryUrl + res.fileUrl,', galleryUrl + res.fileUrl,);
+          userApi.updateAvatar({
+            avatarImg: galleryUrl + res.fileUrl,
+            success: (res) => {
+              console.log('res', res);
+              this.setData({
+                avatarUrl: res.avatarImg
+              })
+            }
+          })
+        }
+      })     
     },
     nicknameConfirm (e) {
-      const nickname = e.detail.value
-      if(this.strlen(nickname) >= 10) {
-        console.log('>>>', 'nickname.slice(0, 10', nickname.slice(0, 10) + '...')
-        this.setData({
-          nickname: nickname.slice(0, 10) + '...'
-        })
-      }
+      const nickName = e.detail.value
+      userApi.updateNickname({
+        nickName,
+        success: (res) => {
+          if(this.strlen(res.nickName) >= 10) {
+            this.setData({
+              nickName: res.nickName.slice(0, 10) + '...'
+            })
+          } else {
+            this.setData({
+              nickName: res.nickName,
+            })
+          }
+        }
+      })
     },
     strlen (str) {
       let len = 0

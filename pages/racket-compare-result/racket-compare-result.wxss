@@ -41,6 +41,10 @@ page {
   border-bottom: 1px solid #a3a1a1;
   padding: 15rpx 0;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260rpx;
 }
 
 .racket-desc-detail {

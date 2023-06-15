@@ -1,5 +1,6 @@
 const UserApi = require('./api/user');
 const RacketApi = require('./api/racket');
+console.log('UserApi', UserApi);
 console.log('RacketApi', RacketApi);
 
 // app.js
@@ -11,13 +12,11 @@ App({
     wx.setStorageSync('logs', logs)
 
     // // 登录
-    // UserApi.miniLogin({
-    //   success: function (res) {
-    //     console.log('>>>', 'res', res)
-    //     if (res.statusCode === 200) {
-    //     }
-    //   }
-    // })
+    UserApi.miniLogin({
+      success: function (res) {
+        console.log('>>>', 'res', res)
+      }
+    })
 
     // 获取拍子数据
     RacketApi.getAllRacket()

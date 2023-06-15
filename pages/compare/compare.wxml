@@ -1,7 +1,7 @@
 <view class="compare-wrapper">
   <view>
     <view class="input" type="text" bindtap="chooseRacketInputFocus" data-type="1" >
-      <text wx:if="{{ racket1 }}">{{ racket1 }}</text>
+      <view wx:if="{{ racket1 }}" class="text-content">{{ racket1 }}</view>
       <text class="text-placeholder" wx:else>球拍1</text>
     </view>
   </view>
@@ -10,7 +10,7 @@
   </view>
   <view>
     <view class="input input2" type="text" bindtap="chooseRacketInputFocus" data-type="2">
-      <text wx:if="{{ racket2 }}">{{ racket2 }}</text>
+      <view wx:if="{{ racket2 }}" class="text-content">{{ racket2 }}</view>
       <text class="text-placeholder" wx:else>球拍2</text>
     </view>
   </view>

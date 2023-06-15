@@ -1,4 +1,5 @@
-let Storage = require('../../utils/storage-utils');
+const Storage = require('../../utils/storage-utils');
+const ProductApi = require('../../api/product');
 
 Page({
 
@@ -11,24 +12,44 @@ Page({
     activeIndex: 0,
     totalList: [],
     searchList: [],
-    isShowSearchList: false
+    isShowSearchList: false,
+    from: ''
   },
-  onLoad() {
-    const racketData = JSON.parse(Storage.getVariable('racketData')) || []
-    const totalList = []
-    for (let i = 0; i < racketData.length; i++) {
-      const name = racketData[i].name + ' ' + racketData[i].version + ' ' + racketData[i].variant
-      totalList.push(name)
-    }
+  onLoad(options) {
+    const { from } = options
     this.setData({
-      totalList
+      from
     })
+    let totalList = []
+    if (from === 'shop') {
+      ProductApi.getAllProduct({
+        success: (res) => {
+          console.log('success', res);
+          totalList = [...res]
+          for (let i = 0; i < totalList.length; i++) {
+            totalList[i].showName = totalList[i].productName
+          }
+          this.setData({
+            totalList
+          })
+        }
+      })
+    } else {
+      const racketData = JSON.parse(Storage.getVariable('racketData')) || []
+      totalList = [...racketData]
+      for (let i = 0; i < totalList.length; i++) {
+        totalList[i].showName = racketData[i].name + ' ' + racketData[i].version + ' ' + racketData[i].variant
+      }
+      this.setData({
+        totalList
+      })
+    }
   },
   search(e) {
     console.log('search', e);
     if (e.detail.value) {
       const searchList = this.data.totalList.filter(item => {
-        return item.indexOf(e.detail.value) !== -1
+        return item.showName.indexOf(e.detail.value) !== -1
       })
       console.log('searchList', searchList);
       this.setData({
@@ -60,10 +81,17 @@ Page({
   confirm(e) {
     console.log('confirm', e);
   },
-  queryRacket(e) {
+  queryItem(e) {
     const data = e.currentTarget.dataset
-    wx.navigateTo({
-      url: `/pages/racket-compare-result/racket-compare-result?racket1=${data.racketName}`,
-    })
+    console.log(data);
+    if (this.data.from === 'shop') {
+      wx.navigateTo({
+        url: `/pages/product-detail/product-detail?productId=${data.item.productId}`,
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/racket-compare-result/racket-compare-result?racket1=${data.item.showName}`,
+      })
+    }  
   }
 })

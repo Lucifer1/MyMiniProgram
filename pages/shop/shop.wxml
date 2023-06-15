@@ -1,6 +1,6 @@
 <view class="query-content input-placeholder">
   <icon class="query-icon" type="search" size="50rpx"></icon>
-  <view class="query-input" bindtap="turnToSearch"></view>
+  <view class="query-input" bindtap="jumpToSearch"></view>
   <view wx:if="{{searchflag}}" class="close-placeholder" catchtap="clear"></view>
   <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
 </view>
@@ -19,16 +19,4 @@
     </view>
   </view>
 </view>
-<view wx:if="{{isShowSearchList}}" class="query-wrapper">
-  <view class="query-content">
-    <icon class="query-icon" type="search" size="50rpx"></icon>
-    <input class="query-input" type="text" value="{{queryStr}}" focus="{{isShowSearchList}}"	bindinput="queryInput" bindfocus="queryFocus" bindblur="onBlur" placeholder="请输入..." />
-    <view wx:if="{{searchflag}}" class="close-placeholder" catchtap="clear"></view>
-    <icon class="close-icon" wx:if="{{searchflag}}" type="clear" size="40rpx"></icon>
-  </view>
-  <view wx:if="{{isShowSearchList}}" class="search-list">
-    <view wx:for="{{searchList}}" wx:key="index" class="search-list-item" bindtap="chooseRacket" data-racket="{{item}}">
-      {{item.name}}
-    </view>
-  </view>
-</view>
+
