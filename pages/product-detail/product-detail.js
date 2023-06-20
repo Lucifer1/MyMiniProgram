@@ -1,4 +1,6 @@
 const ProductApi = require('../../api/product');
+const CartApi = require('../../api/cart');
+console.log('CartApi', CartApi);
 
 Page({
   data: {
@@ -53,6 +55,22 @@ Page({
   jumpToComfirm () {
     wx.navigateTo({
       url: '/pages/comfirm/comfirm',
+    })
+  },
+  addToCart () {
+    console.log('addToCart111');
+    CartApi.addToCart({
+      product: {
+        productId: this.data.product.productId,
+        variantId: this.data.product.variants[this.data.activeVariantIndex].id,
+        quantity: this.data.variantNumber
+      },
+      success: (res) => {
+        console.log('success', res);
+        this.setData({
+          product: res
+        })
+      }
     })
   }
 })

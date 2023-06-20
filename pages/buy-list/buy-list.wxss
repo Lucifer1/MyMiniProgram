@@ -3,6 +3,16 @@ page {
   padding-bottom: 300rpx;
 }
 
+.is-empty {
+  width: 100vw;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  color: #909090;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+}
+
 .product-list-wrapper {
   display: flex;
   flex-direction: column;

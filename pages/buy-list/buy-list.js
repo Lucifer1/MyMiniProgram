@@ -1,16 +1,10 @@
 const computedBehavior = require("miniprogram-computed").behavior;
+const CartApi = require('../../api/cart');
 
 Component({
   behaviors: [computedBehavior],
   data: {
-    productList: [
-      { name: '天斧77 1', variant: '3ug5', number: 1, price: 10, checked: false },
-      { name: '天斧77 2', variant: '3ug5', number: 2, price: 10, checked: false },
-      { name: '天斧77 3', variant: '3ug5', number: 3, price: 10, checked: false },
-      { name: '天斧77 4', variant: '3ug5', number: 4, price: 10, checked: false },
-      { name: '天斧77 5', variant: '3ug5', number: 5, price: 10, checked: false },
-      { name: '天斧77 6', variant: '3ug5', number: 6, price: 10, checked: false },
-    ],
+    productList: [],
     isAllCheck: false
   },
   computed: {
@@ -19,10 +13,22 @@ Component({
       for (let i = 0; i < data.productList.length; i++) {
         if (data.productList[i].checked) {
           console.log(data.productList[i]);
-          totalPrice += data.productList[i].price * data.productList[i].number
+          totalPrice += data.productList[i].variant.price * data.productList[i].quantity
         }
       }
       return totalPrice
+    }
+  },
+  lifetimes: {
+    created () {
+      CartApi.getCartList({
+        success: (res) => {
+          console.log('success', res);
+          this.setData({
+            productList: res
+          })
+        }
+      })
     }
   },
   pageLifetimes: {
@@ -30,6 +36,14 @@ Component({
       if (typeof this.getTabBar === 'function' && this.getTabBar()) {
         this.getTabBar().setSelected('购物车')
       }
+      CartApi.getCartList({
+        success: (res) => {
+          console.log('success', res);
+          this.setData({
+            productList: res
+          })
+        }
+      })
     }
   },
   methods: {

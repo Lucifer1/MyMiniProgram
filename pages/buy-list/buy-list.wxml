@@ -1,25 +1,28 @@
 <view>
-  <checkbox-group class="product-list-wrapper">
+  <view wx:if="{{!productList.length}}" class="is-empty">
+    您的购物车是空的哦~
+  </view>
+  <checkbox-group wx:else class="product-list-wrapper">
     <label class="product-item" wx:for="{{productList}}" data-index="{{ index }}" data-product="{{ item }}" bindtap="selectProduct">
-      <checkbox class="check-box" value="{{item.name}}" checked="{{item.checked}}"/>
+      <checkbox class="check-box" value="{{item.productName}}" checked="{{item.checked}}"/>
       <view class="product-content">
         <image class="product-img" src="/images/icon.jpg" mode="widthFix" />
         <view class="product-font">
-          <view class="product-title">{{ item.name }}</view>
-          <view class="product-variant">{{ item.variant }}</view>
+          <view class="product-title">{{ item.productName }}</view>
+          <view class="product-variant">{{ item.variant.name }}</view>
           <view class="product-price">
-            <text class="price-icon">￥</text><text class="product-price">{{item.price}}</text>
+            <text class="price-icon">￥</text><text class="product-price">{{item.variant.price}}</text>
           </view>
           <view class="product-number">
-            <view class="decline {{ item.number <= 1 ? ' disable' : '' }}" catchtap="decline" data-index="{{ index }}">-</view>
-            <view class="number">{{ item.number }}</view>
+            <view class="decline {{ item.quantity <= 1 ? ' disable' : '' }}" catchtap="decline" data-index="{{ index }}">-</view>
+            <view class="number">{{ item.quantity }}</view>
             <view class="plus" catchtap="plus" data-index="{{ index }}">+</view>
           </view>
         </view>
       </view>
     </label>
   </checkbox-group>
-  <view class="price-wrapper">
+  <view class="price-wrapper" wx:if="{{productList.length}}">
     <label class="all-check">
       <radio checked="{{ isAllCheck }}" bindtap="checkAll" />
       <view>全选</view>
